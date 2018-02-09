@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+//推送的消息类型 出牌，叫地主，抢地主，加倍，
+message Message {
+    int32 type = 1;
+    repeated int32 cards = 2; //出牌时的牌型
+}
+
+
+message PushRequest {
+    string token = 1;
+}
+
+service PushServer {
+    rpc Fetch (PushRequest) returns (stream Message);
+}

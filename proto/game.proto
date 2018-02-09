@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+message GameRequest {
+    int32 type = 1;
+    repeated int32 cards = 2;
+}
+
+
+message GameResponse {
+    int32 code = 1;
+}
+
+
+service GameServer {
+    rpc Request (GameRequest) returns (GameResponse);
+}

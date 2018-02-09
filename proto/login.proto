@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+message LoginInfo {
+    string name = 1;
+}
+
+message LoginResult {
+    int32 code = 1;
+}
+
+service Login {
+    rpc Login (LoginInfo) returns (LoginResult);
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+import "user.proto";
+
+message RoomInfo {
+    int32 id = 1;
+    repeated User users = 2;
+}
+
+message RoomJoinRequest {
+    int32 id = 1;
+    int32 userId = 2;
+}
+
+
+service Room {
+    rpc Join (RoomJoinRequest) returns (RoomInfo);
+    rpc Create (User) returns (RoomInfo);
+}
